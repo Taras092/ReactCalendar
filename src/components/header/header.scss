@@ -1,8 +1,14 @@
 .header {
-  display: flex;
-  height: 60px;
-  padding: 0 48px;
-  align-items: center;
+  text-align: center;
+  font-size: 34px;
+  font-family: monospace;
+
+  &__description {
+    display: flex;
+    height: 60px;
+    padding: 0 48px;
+    align-items: center;
+  }
 }
 
 .create-event-btn {
@@ -17,6 +23,7 @@
   &__today-btn {
     margin-left: 32px;
     padding: 0 16px;
+    margin-bottom: 5px;
   }
 
   &__nav-icon {
@@ -26,5 +33,6 @@
 
   &__displayed-month {
     margin-left: 10px;
+    font-size: 18px;
   }
 }
