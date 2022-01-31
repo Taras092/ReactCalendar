@@ -45,3 +45,15 @@ export const months = [
   "November",
   "December",
 ];
+
+
+export const setDay = (date, value) => {
+  const newDate = date;
+
+  if (value === true) {
+    newDate.setDate(newDate.getDate() + 7);
+    return newDate;
+  }
+  newDate.setDate(newDate.getDate() - 7);
+  return newDate;
+}
