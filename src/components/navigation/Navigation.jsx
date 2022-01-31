@@ -1,6 +1,8 @@
 import React from "react";
-
+import moment from "moment";
 import { days } from "../../utils/dateUtils.js";
+
+const formatDate = (date) => moment(date).format("L");
 
 const Navigation = ({ weekDates }) => {
   return (
@@ -9,7 +11,7 @@ const Navigation = ({ weekDates }) => {
         <div
           key={Math.random()}
           className={
-            dayDate.getDate() === new Date().getDate()
+            formatDate(dayDate) === formatDate(new Date())
               ? "calendar__day-label day-label calendar__today"
               : "calendar__day-label day-label"
           }
