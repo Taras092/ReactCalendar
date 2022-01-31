@@ -22,19 +22,23 @@ class Calendar extends Component {
   }
 
   fetchEvents = () => {
-    fetchEventsCalendare().then((eventsCalendare) =>
+    fetchEventsCalendare().then((eventsCalendare) => {
       this.setState({
-        events: eventsCalendare,
-      })
-    );
-  }
+        events: eventsCalendare.map(({ dateFrom, dateTo, ...rest }) => ({
+          dateFrom: new Date(dateFrom),
+          dateTo: new Date(dateTo),
+          ...rest,
+        })),
+      });
+    });
+  };
 
   handleSubmit = (event) => {
     event.id = Math.random();
     // this.setState({
     //   events: [...this.state.events, event],
     // });
-
+    console.log(event);
     createEvent(event).then(() => this.fetchEvents());
   };
 

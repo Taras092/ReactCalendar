@@ -48,12 +48,11 @@ export const months = [
 
 
 export const setDay = (date, value) => {
-  const newDate = date;
 
   if (value === true) {
-    newDate.setDate(newDate.getDate() + 7);
-    return newDate;
+    date.setDate(date.getDate() + 7);
+    return date;
   }
-  newDate.setDate(newDate.getDate() - 7);
-  return newDate;
+  date.setDate(date.getDate() - 7);
+  return date;
 }

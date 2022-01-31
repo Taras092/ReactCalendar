@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Event from "../event/Event";
 import { formatMins } from "../../../src/utils/dateUtils.js";
 
 const Hour = ({ dataHour, hourEvents, onDelete }) => {
-  // const [ currentEvent, setCurrentEvent ] = useState();
 
   return (
     <div className="calendar__time-slot" data-time={dataHour + 1}>
@@ -27,13 +26,7 @@ const Hour = ({ dataHour, hourEvents, onDelete }) => {
             title={title}
             id={id}
             onClick={onDelete}
-            // onClick={() => {
-            //   setCurrentEvent({ id, title, description, dateFrom, dateTo });
-            // }}
           />
-          // {/* {currentEvent && (
-          //   <div key={currentEvent.id}>{currentEvent.title}</div>
-          // )} */}
         );
       })}
     </div>

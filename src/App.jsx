@@ -53,10 +53,10 @@ class App extends Component {
     return (
       <>
         <Header
-          handleCreateEvent={this.handleCreateEvent}
-          handleTodayDate={this.handleTodayDate}
-          handleLeft={this.handleLeft}
-          handleRight={this.handleRight}
+          onCreateEvent={this.handleCreateEvent}
+          onTodayDate={this.handleTodayDate}
+          onPrevMonth={this.handleLeft}
+          onNextMonth={this.handleRight}
           date={this.state.weekStartDate}
         />
         <Calendar
