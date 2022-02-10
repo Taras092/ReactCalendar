@@ -1,6 +1,6 @@
 # **Calendare Project**
 
-[Site link](https://taras092.github.io/ReactCalendar/)
+[Site link](https://stupefied-mcclintock-8306d7.netlify.app)
 
 ###### Layout supports desktop (up-to-1400) versions
 
