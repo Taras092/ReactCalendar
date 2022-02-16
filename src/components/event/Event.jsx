@@ -18,7 +18,7 @@ const Event = ({ height, marginTop, title, time, onClick, id }) => {
       style={eventStyle}
       className="event"
       onClick={() => {
-        setButtonState(true);
+        setButtonState(!state);
       }}
     >
       <div className="event__title">{title}</div>
