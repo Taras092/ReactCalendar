@@ -8,7 +8,7 @@ const Hour = ({ dataHour, hourEvents, onDelete, dataDay }) => {
     const isHour = new Date().getHours() === dataHour;
   return (
     <div className="calendar__time-slot" data-time={dataHour + 1}>
-      {isToday && isHour ? <TimeLine marginTop={new Date().getMinutes()} /> : null}
+      {isToday && isHour && <TimeLine marginTop={new Date().getMinutes()} />}
       {/* if no events in the current hour nothing will render here */}
       {hourEvents.map(({ id, dateFrom, dateTo, title }) => {
         const eventStart = `${dateFrom.getHours()}:${formatMins(dateFrom.getMinutes())}`;
