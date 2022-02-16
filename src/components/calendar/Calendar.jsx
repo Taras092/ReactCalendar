@@ -35,7 +35,6 @@ class Calendar extends Component {
 
   handleSubmit = (event) => {
     event.id = Math.random();
-    console.log(event);
     createEvent(event).then(() => this.fetchEvents());
   };
 
