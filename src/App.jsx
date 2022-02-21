@@ -1,72 +1,54 @@
-import React, { Component } from "react";
-import Header from "./components/header/Header.jsx";
-import Calendar from "./components/calendar/Calendar.jsx";
+import React, { useState } from 'react';
+import Header from './components/header/Header.jsx';
+import Calendar from './components/calendar/Calendar.jsx';
 
-import {
-  getWeekStartDate,
-  generateWeekRange,
-  setDay,
-} from "../src/utils/dateUtils.js";
+import { getWeekStartDate, generateWeekRange, setDay } from '../src/utils/dateUtils.js';
 
-import "./common.scss";
+import './common.scss';
 
-class App extends Component {
-  state = {
-    weekStartDate: new Date(),
-    visible: false,
+const App = () => {
+  const [weekStartDate, setWeekStartDate] = useState(new Date());
+  const [visible, setVisible] = useState(false);
+
+  const handleCreateEvent = () => {
+    setVisible(true);
   };
 
-  handleCreateEvent = () => {
-    this.setState({
-      visible: true,
-    });
+  const handleTodayDate = () => {
+    setWeekStartDate(new Date());
   };
 
-  handleTodayDate = () => {
-    this.setState({
-      weekStartDate: new Date(),
-    });
+  const handleLeft = () => {
+    setWeekStartDate(setDay(this.state.weekStartDate, false))
   };
 
-  handleLeft = () => {
-    this.setState({
-      weekStartDate: setDay(this.state.weekStartDate,false),
-    });
+  const handleRight = () => {
+setWeekStartDate(setDay(this.state.weekStartDate, true));
   };
 
-  handleRight = () => {
-    this.setState({
-      weekStartDate: setDay(this.state.weekStartDate, true),
-    });
+  const handleCloseModalEvent = () => {
+    setVisible(false);
   };
 
-  handleCloseModalEvent = () => {
-    this.setState({
-      visible: false,
-    });
-  };
+  // const { weekStartDate } = this.state;
+  const weekDates = generateWeekRange(getWeekStartDate(weekStartDate));
 
-  render() {
-    const { weekStartDate } = this.state;
-    const weekDates = generateWeekRange(getWeekStartDate(weekStartDate));
-
-    return (
-      <>
-        <Header
-          onCreateEvent={this.handleCreateEvent}
-          onTodayDate={this.handleTodayDate}
-          onPrevMonth={this.handleLeft}
-          onNextMonth={this.handleRight}
-          date={this.state.weekStartDate}
-        />
-        <Calendar
-          weekDates={weekDates}
-          visible={this.state.visible}
-          onClose={this.handleCloseModalEvent}
-        />
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Header
+        onCreateEvent={handleCreateEvent}
+        onTodayDate={handleTodayDate}
+        onPrevMonth={handleLeft}
+        onNextMonth={handleRight}
+        date={weekStartDate}
+      />
+      <Calendar
+        weekDates={weekDates}
+        visible={visible}
+        onClose={handleCloseModalEvent}
+      />
+    </>
+  );
+};
 
 export default App;
